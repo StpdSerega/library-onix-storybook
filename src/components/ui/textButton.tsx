@@ -1,12 +1,13 @@
+import React from 'react';
 import cn from '../../common/utils/cn.util';
-import '../../tailwind.css'
+import '../../tailwind.css';
 import { LabelColor, labelColorMap, LabelSize, labelSizeMap } from './label';
 
 export interface TextButtonProps {
     label?: string;
     labelColor?: LabelColor;
     labelSize?: LabelSize;
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;    
 }
 
 export default function TextButton({
@@ -16,7 +17,7 @@ export default function TextButton({
     onClick,
 }: TextButtonProps) {
     const textColor = labelColorMap[labelColor];
-    const textSize = labelSizeMap[labelSize]
+    const textSize = labelSizeMap[labelSize];
 
     return (
         <button

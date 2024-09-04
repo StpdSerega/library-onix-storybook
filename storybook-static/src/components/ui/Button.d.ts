@@ -4,5 +4,6 @@ export interface ButtonProps {
     label: string;
     buttonColor?: ButtonColor;
     disabled?: boolean;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-export default function Button({ label, buttonColor, disabled, }: ButtonProps): import("react/jsx-runtime").JSX.Element;
+export default function Button({ label, buttonColor, disabled, onClick, }: ButtonProps): import("react/jsx-runtime").JSX.Element;

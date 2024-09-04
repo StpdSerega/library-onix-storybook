@@ -12,6 +12,7 @@ export interface ButtonProps {
   label: string;
   buttonColor?: ButtonColor;
   disabled?: boolean; 
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;    
 }
 
 
@@ -19,6 +20,7 @@ export default function Button({
   label,
   buttonColor = 'default',
   disabled = false,
+  onClick,
 }: ButtonProps) {
   const backgroundColor = colorMap[buttonColor];
   let border = '';
@@ -34,6 +36,7 @@ export default function Button({
       className={cn(`h-11 w-120 rounded-md py-3 px-4 gap-1.5 font-roobert-trial ${border}`)}
       style={{ backgroundColor }}
       disabled={disabled}
+      onClick={onClick}
     >       
       <h1
         className={`font-normal text-1s`}

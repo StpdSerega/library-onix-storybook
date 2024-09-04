@@ -1,46 +1,34 @@
-import { useState } from 'react';
-import Input  from './input';
-import Button from './Button';
+import { ReactNode, Children, ReactElement } from 'react';
 import cn from '../../common/utils/cn.util';
-import Label  from './label';
 import '../../tailwind.css';
-import TextButton from './textButton';
-import { isValidEmail } from '../../common/utils/isValidEmail.util';
-import { isValidPassword } from '../../common/utils/isPasswordValid.util';
 
 
-export default function SignInForm() {
-    const [emailValue, setEmailValue] = useState('');
-    const [passwordValue, setPasswordValue] = useState('');
+export interface SignInFormProps {
+    children?:  ReactNode;
+}
 
-    const isEmailValid = isValidEmail(emailValue);
-    const isPasswordValid = isValidPassword(passwordValue);
-
-    const isButtonDisabled = !isEmailValid || !isPasswordValid;
+export default function SignInForm({ children } : SignInFormProps) {
+    const childArray = Children.toArray(children) as ReactElement[];
 
 return (
-    <form className={cn(`h-92 w-128 rounded-lg shadow-form-custom p-7.5 gap-6`)} style={{ backgroundColor: '#FFFFFF' }}>  
+    <form className={cn(`h-92 w-128 rounded-lg shadow-form-custom p-7.5 gap-6`)} style={{ backgroundColor: '#FFFFFF' }}>
+    <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-6">
-                <div className='flex flex-col gap-1.5'>
-                    <Label label='Email address' />
-                    <Input placeholder='Enter your email' onChange={(e) => setEmailValue(e.target.value)}/>
-                </div>
-                <div className='flex flex-col gap-1.5'>
-                    <Label label='Password' />
-                    <Input placeholder='Enter your password' type='password' onChange={(e) => setPasswordValue(e.target.value)}/>
-                    <TextButton label='Forgot your password?'/>
-                </div>
+            <div className='flex flex-col gap-1.5'>
+                {childArray[0] || null}
+                {childArray[1] || null}
             </div>
-            <div className="flex flex-col gap-3">
-                <Button 
-                    label='Sign in'
-                    buttonColor={isButtonDisabled ? 'inactive' : 'default'}
-                    disabled={isButtonDisabled} 
-                />
-                <Button label='Create an account' buttonColor='additional' />
+            <div className='flex flex-col gap-1.5'>
+                {childArray[2] || null} 
+                {childArray[3] || null} 
+                {childArray[4] || null} 
             </div>
         </div>
-    </form>
+        <div className="flex flex-col gap-3">
+        {childArray[5] || null} 
+        {childArray[6] || null} 
+        </div>
+    </div>
+</form>
 );
 }

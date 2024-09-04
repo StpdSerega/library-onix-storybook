@@ -1,7 +1,7 @@
 {
   "name": "library-onix-storybook",
   "private": false,
-  "version": "0.1.6",
+  "version": "0.1.8",
   "type": "module",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "tailwind": "npx tailwindcss -o ./dist/index.css --minify",
+    "tailwind": "npx tailwindcss -i ./src/index.css -o ./src/tailwind.css",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepare": "husky install",
