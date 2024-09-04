@@ -5,28 +5,14 @@ import cn from '../../common/utils/cn.util';
 import '../../tailwind.css'
 
 export interface InputProps {
-  className?: string;
-  backgroundColor?: string;
   placeholder?: string;
   type?: 'text' | 'password';
-  iconFill?: string;
-  margin?: string;
-  padding?: string;
-  border?: string;
-  gap?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function Input({
-  className = 'h-9 w-120 rounded-md',
-  backgroundColor = '#F9FAFB',
   placeholder = 'Enter your email address',
   type = 'text',
-  iconFill = 'black',
-  padding = 'py-1.5 px-3',
-  gap = 'gap-1.5',
-  border = 'border border-gray-400 focus:border-twiist-blue focus:outline-none',
-  margin = '',
   onChange,
 }: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
@@ -39,8 +25,10 @@ export default function Input({
     <div className="relative">
       <input
         placeholder={placeholder}
-        className={cn(`${className} ${margin} ${padding} ${gap} ${border}`)}
-        style={{ backgroundColor }}
+        className={cn(`h-9 w-120 rounded-md py-1.5 px-3 gap-1.5 border
+           border-gray-400 focus:border-twiist-blue focus:outline-none
+           font-roobert-trial text-1xs`)}
+        style={{ backgroundColor: '#F9FAFB' }}
         type={type === 'password' && showPassword ? 'text' : type}
         onChange={onChange}
       />
@@ -51,9 +39,9 @@ export default function Input({
           onClick={togglePasswordVisibility}
         >
           {showPassword ? (
-            <ShowPasswordIcon fill={iconFill} />
+            <ShowPasswordIcon />
           ) : (
-            <HidePasswordIcon fill={iconFill} />
+            <HidePasswordIcon />
           )}
         </button>
       )}

@@ -1,49 +1,45 @@
 import cn from '../../common/utils/cn.util';
-import '../../tailwind.css'
+import '../../tailwind.css';
 
+export type ButtonColor = 'default' | 'inactive' | 'additional';
+
+export const colorMap: Record<ButtonColor, string> = {
+  default: '#0171E3',
+  inactive: '#67A6EE',
+  additional: 'transparent',
+};
 export interface ButtonProps {
   label: string;
-  className?: string;
-  backgroundColor?: string;
-  disabledBackgroundColor?: string;
-  border?: string;
-  textColor?: string;
-  textFont?: string;
-  fontWeight?: string;
-  textSize?: string;
-  margin?: string;
-  padding?: string;
-  gap?: string;
+  buttonColor?: ButtonColor;
   disabled?: boolean; 
 }
 
 
 export default function Button({
   label,
-  border,
-  backgroundColor = '#0171E3',
-  disabledBackgroundColor = '#67A6EE',
-  textColor = 'white',
-  textFont = '',
-  fontWeight = 'font-normal',
-  className='h-11 w-120 rounded-md',
-  padding = 'py-3 px-4',
-  gap = 'gap-1.5',
-  textSize='text-1s',
-  margin = '',
+  buttonColor = 'default',
   disabled = false,
 }: ButtonProps) {
-return (
-  <button 
-    className={cn(`${className} ${border} ${padding} ${gap} ${margin}`)}
-    style={{ backgroundColor: disabled ? disabledBackgroundColor : backgroundColor }}
-    disabled={disabled}
-  >       
-    <h1
-      className={`${fontWeight} ${textFont} ${textSize}`}
-      style={{ color: textColor }}>
-      {label}
-    </h1>
-  </button>
-);
+  const backgroundColor = colorMap[buttonColor];
+  let border = '';
+  let textColor = 'white';
+
+  if (buttonColor === 'additional') {
+    border = 'border-1 border-twiist-blue';
+    textColor = '#0171E3';
+  }
+
+  return (
+    <button 
+      className={cn(`h-11 w-120 rounded-md py-3 px-4 gap-1.5 font-roobert-trial ${border}`)}
+      style={{ backgroundColor }}
+      disabled={disabled}
+    >       
+      <h1
+        className={`font-normal text-1s`}
+        style={{ color: textColor }}>
+        {label}
+      </h1>
+    </button>
+  );
 }

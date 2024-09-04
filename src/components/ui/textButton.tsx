@@ -1,29 +1,29 @@
 import cn from '../../common/utils/cn.util';
 import '../../tailwind.css'
+import { LabelColor, labelColorMap, LabelSize, labelSizeMap } from './label';
 
 export interface TextButtonProps {
     label?: string;
-    labelColor?: string;
-    labelSize?: string;
-    labelAlign?: string;
-    margin?: string;
+    labelColor?: LabelColor;
+    labelSize?: LabelSize;
     onClick?: () => void;
 }
 
 export default function TextButton({
-    label = 'Forgot your password?',
-    labelColor = '#0171E3',
-    labelSize = 'text-1xs',
-    labelAlign = 'text-left',
-    margin = '',
+    label = 'text button',
+    labelColor = 'primary',
+    labelSize = 'xs',
     onClick,
 }: TextButtonProps) {
+    const textColor = labelColorMap[labelColor];
+    const textSize = labelSizeMap[labelSize]
+
     return (
         <button
             onClick={onClick}
-            className={cn(`${margin} ${labelSize} ${labelAlign} w-full`)}
+            className={cn(`text-left w-full font-roobert-trial ${textSize}`)}
             style={{
-                color: labelColor,
+                color: textColor,
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',

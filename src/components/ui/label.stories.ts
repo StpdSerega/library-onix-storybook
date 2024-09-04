@@ -17,10 +17,6 @@ export const DefaultLabel: Story = {
   args: {
     label: 'Label',
     labelColor: 'black',
-    labelSize: 'text-1xs',
-    className: 'tracking-normal',
-    fontWeight: 'font-normal',
-    labelAlign: 'text-left', 
-    labelFontFamily: '',
+    labelSize: 'sm',
   },
 };

@@ -6,7 +6,7 @@ export const isValidPassword = (password: string): boolean => {
     const hasUppercase = /[A-Z]/.test(password);
     const hasLowercase = /[a-z]/.test(password);
     const hasNumber = /\d/.test(password);
-    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasSymbol = /[!@#$%^&*()_,.?":{}|<>]/.test(password);
 
     if (!(hasUppercase && hasLowercase && hasNumber && hasSymbol)) {
         return false;

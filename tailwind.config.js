@@ -27,6 +27,9 @@ module.exports = {
       fontWeight: {
         'semibold-plus': '650',
       },
+      fontFamily: {
+        'roobert-trial': 'Roobert-Regular'
+      },
       borderWidth: {
         '1': '1px',
       },
@@ -34,8 +37,7 @@ module.exports = {
         'twiist-blue': '#0171E3', 
       },
       boxShadow: {
-        'form-custom-1': '0px 1px 2px -1px rgba(0, 0, 0, 0.1)',
-        'form-custom-2': '0px 1px 3px 0px rgba(0, 0, 0, 0.1)',
+        'form-custom': '0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1)',
       }
     },
   },
