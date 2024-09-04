@@ -1,8 +1,5 @@
-interface ISvg {
-    id?: number;
-    fill: string;
-    className?: string;
-    width?: number;
-    height?: number;
+export interface ISvg {
+    size?: SvgSize;
 }
-export default ISvg;
+export type SvgSize = 'sm' | 'md' | 'lg';
+export declare const sizeMap: Record<SvgSize, string>;

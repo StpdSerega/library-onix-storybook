@@ -1,16 +1,8 @@
+export type ButtonColor = 'default' | 'inactive' | 'additional';
+export declare const colorMap: Record<ButtonColor, string>;
 export interface ButtonProps {
     label: string;
-    className?: string;
-    backgroundColor?: string;
-    disabledBackgroundColor?: string;
-    border?: string;
-    textColor?: string;
-    textFont?: string;
-    fontWeight?: string;
-    textSize?: string;
-    margin?: string;
-    padding?: string;
-    gap?: string;
+    buttonColor?: ButtonColor;
     disabled?: boolean;
 }
-export default function Button({ label, border, backgroundColor, disabledBackgroundColor, textColor, textFont, fontWeight, className, padding, gap, textSize, margin, disabled, }: ButtonProps): import("react/jsx-runtime").JSX.Element;
+export default function Button({ label, buttonColor, disabled, }: ButtonProps): import("react/jsx-runtime").JSX.Element;
