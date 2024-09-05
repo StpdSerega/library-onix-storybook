@@ -11,5 +11,6 @@ export interface LabelProps {
     labelWidth?: LabelWidth;
     highlightedColor?: LabelColor;
     highlightedSize?: LabelSize;
+    highlightedWidth?: LabelWidth;
 }
-export default function Label({ label, labelColor, labelSize, labelWidth, highlightedSize, highlightedColor, }: LabelProps): import("react/jsx-runtime").JSX.Element;
+export default function Label({ label, labelColor, labelSize, labelWidth, highlightedSize, highlightedColor, highlightedWidth }: LabelProps): import("react/jsx-runtime").JSX.Element;

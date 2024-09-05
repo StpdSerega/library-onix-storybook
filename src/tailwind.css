@@ -1,8 +1,56 @@
-@import url(https://db.onlinewebfonts.com/c/6228016f2b172c06410f3a2356d33f6c?family=Roobert-Regular);
+@font-face{
+  font-family: "Roobert-Regular";
 
-@import url(https://db.onlinewebfonts.com/c/1aaf46e1647421d25a2d7e229329ba59?family=Roobert+SemiBold);
+  src: url("./fonts/Roobert/Regular/6228016f2b172c06410f3a2356d33f6c.eot");
 
-@import url(https://db.onlinewebfonts.com/c/fdd7abd88b9d820ffbf7108209dba1ce?family=Roobert+Medium);
+  src: url("./fonts/Roobert/Regular/6228016f2b172c06410f3a2356d33f6c.eot?#iefix")format("embedded-opentype"),
+        url("./fonts/Roobert/Regular/6228016f2b172c06410f3a2356d33f6c.woff")format("woff"),
+        url("./fonts/Roobert/Regular/6228016f2b172c06410f3a2356d33f6c.woff2")format("woff2"),
+        url("./fonts/Roobert/Regular/6228016f2b172c06410f3a2356d33f6c.ttf")format("truetype"),
+        url("./fonts/Roobert/Regular/6228016f2b172c06410f3a2356d33f6c.svg#Roobert-Regular")format("svg");
+
+  font-weight:normal;
+
+  font-style:normal;
+
+  font-display:swap;
+}
+
+@font-face{
+  font-family: "Roobert Medium";
+
+  src: url("./fonts/Roobert/Medium/fdd7abd88b9d820ffbf7108209dba1ce.eot");
+
+  src: url("./fonts/Roobert/Medium/fdd7abd88b9d820ffbf7108209dba1ce.eot?#iefix")format("embedded-opentype"),
+        url("./fonts/Roobert/Medium/fdd7abd88b9d820ffbf7108209dba1ce.woff")format("woff"),
+        url("./fonts/Roobert/Medium/fdd7abd88b9d820ffbf7108209dba1ce.woff2")format("woff2"),
+        url("./fonts/Roobert/Medium/fdd7abd88b9d820ffbf7108209dba1ce.ttf")format("truetype"),
+        url("./fonts/Roobert/Medium/fdd7abd88b9d820ffbf7108209dba1ce.svg#Roobert Medium")format("svg");
+
+  font-weight:normal;
+
+  font-style:normal;
+
+  font-display:swap;
+}
+
+@font-face{
+  font-family: "Roobert SemiBold";
+
+  src: url("./fonts/Roobert/Semibold/1aaf46e1647421d25a2d7e229329ba59.eot");
+
+  src: url("./fonts/Roobert/Semibold/1aaf46e1647421d25a2d7e229329ba59.eot?#iefix")format("embedded-opentype"),
+        url("./fonts/Roobert/Semibold/1aaf46e1647421d25a2d7e229329ba59.woff")format("woff"),
+        url("./fonts/Roobert/Semibold/1aaf46e1647421d25a2d7e229329ba59.woff2")format("woff2"),
+        url("./fonts/Roobert/Semibold/1aaf46e1647421d25a2d7e229329ba59.ttf")format("truetype"),
+        url("./fonts/Roobert/Semibold/1aaf46e1647421d25a2d7e229329ba59.svg#Roobert SemiBold")format("svg");
+
+  font-weight:normal;
+
+  font-style:normal;
+
+  font-display:swap;
+}
 
 /*
 ! tailwindcss v3.4.10 | MIT License | https://tailwindcss.com
