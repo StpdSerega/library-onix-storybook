@@ -13,6 +13,7 @@ module.exports = {
       },
       height: {
         '13.5': '3.375rem',
+        '58': '14.5rem',
         '80.5': '20.125rem',
         '92': '22.75rem',
       },
@@ -28,7 +29,9 @@ module.exports = {
         'semibold-plus': '650',
       },
       fontFamily: {
-        'roobert-trial': 'Roobert-Regular'
+        'roobert-trial': 'Roobert-Regular',
+        'roobert-trial-medium': 'Roobert Medium',
+        'roobert-trial-semibold': 'Roobert SemiBold',
       },
       borderWidth: {
         '1': '1px',
