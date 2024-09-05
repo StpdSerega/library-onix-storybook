@@ -8,7 +8,6 @@ import VerifyCodeForm from './verifyCodeForm';
 import DigitInputForm from './digitInputForm';
 import VerifyQuestionForm from './verifyQuestionForm';
 
-// Default export for Storybook to use metadata about this story file
 const meta: Meta = {
   title: 'Components/ui/Form',
   tags: ['autodocs'],

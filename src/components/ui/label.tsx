@@ -33,6 +33,7 @@ export interface LabelProps {
   labelWidth?: LabelWidth;
   highlightedColor?: LabelColor;
   highlightedSize?: LabelSize;
+  highlightedWidth?: LabelWidth;
 }
 
 export default function Label({
@@ -42,12 +43,15 @@ export default function Label({
   labelWidth = 'regular',
   highlightedSize = 'xs',
   highlightedColor = 'black',
+  highlightedWidth = 'regular'
 }: LabelProps) {
   const textColor = labelColorMap[labelColor];
   const textSize = labelSizeMap[labelSize];
   const textWidth = labelWidthMap[labelWidth];
   const highlightedTextSize = labelSizeMap[highlightedSize];
   const highlightedTextColor = labelColorMap[highlightedColor];
+  const highlightedTextWidth = labelWidthMap[highlightedWidth];
+
 
   const regex = /\{(.*?)\}/g;
   const parts = label.split(regex);
@@ -63,7 +67,7 @@ export default function Label({
             <span>{part}</span> 
           ) : (
             <span
-              className={cn(`${highlightedTextSize}`)}
+              className={cn(`${highlightedTextSize} ${highlightedTextWidth}`)}
               style={{ color: highlightedTextColor }}
             >
               {part}
