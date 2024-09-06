@@ -14,7 +14,7 @@ export default digitInputMeta;
 
 type DigitInputStory = StoryObj<typeof DigitInputForm>;
 
-export const DefaultDigitInputForm: DigitInputStory = {
+export const DefaultDigitInput: DigitInputStory = {
   args: { 
     length: 6,   
   },

@@ -3,11 +3,11 @@ import cn from '../../common/utils/cn.util';
 import DigitInput from './digitInput';
 
 interface DigitInputFormProps {
-  length?: number; 
+  length?: number;
 }
 
 export default function DigitInputForm({
-  length = 6, 
+  length = 6,
 }: DigitInputFormProps) {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   const [client, setClient] = useState(false);
@@ -19,8 +19,10 @@ export default function DigitInputForm({
   if (!client) return null;
 
   const handleInputChange = (index: number, value: string) => {
-    if (value && index < inputRefs.current.length - 1) {
-      inputRefs.current[index + 1]?.focus();
+    if (value) {
+      if (index < inputRefs.current.length - 1) {
+        inputRefs.current[index + 1]?.focus();
+      }
     }
   };
 
@@ -42,22 +44,48 @@ export default function DigitInputForm({
   };
 
   const handleBackspace = (index: number) => () => {
-    if (index > 0) {
+    const currentInput = inputRefs.current[index];
+
+    if (currentInput?.value === '' && index > 0) {
       inputRefs.current[index - 1]?.focus();
+    } else if (currentInput) {
+      currentInput.value = '';
+    }
+  };
+
+  const handlePaste = (e: React.ClipboardEvent) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData('Text').replace(/\D/g, '');
+    const digits = pastedData.split('').slice(0, length); 
+
+    digits.forEach((digit, i) => {
+      if (inputRefs.current[i]) {
+        inputRefs.current[i]!.value = digit;
+        inputRefs.current[i]?.focus();
+      }
+    });
+
+    const lastIndex = digits.length - 1;
+    if (lastIndex < inputRefs.current.length - 1) {
+      inputRefs.current[lastIndex + 1]?.focus();
     }
   };
 
   return (
-    <form className={cn(`flex gap-1.5 h-13.5 w-96`)} style={{ backgroundColor: 'transparent' }}>
+    <form
+      className={cn(`flex gap-1.5 h-13.5 w-96`)}
+      style={{ backgroundColor: 'transparent' }}
+      onPaste={handlePaste}
+    >
       {Array.from({ length }).map((_, index) => (
-        <DigitInput 
-        key={index}
-        ref={(el) => inputRefs.current[index] = el}
-        onInputChange={(value) => handleInputChange(index, value)}
-        onArrowKeyPress={handleArrowKeyPress(index)}
-        onBackspace={handleBackspace(index)}
+        <DigitInput
+          key={index}
+          ref={(el) => (inputRefs.current[index] = el)}
+          onInputChange={(value) => handleInputChange(index, value)}
+          onArrowKeyPress={handleArrowKeyPress(index)}
+          onBackspace={handleBackspace(index)}
         />
-    ))}
+      ))}
     </form>
   );
 }
